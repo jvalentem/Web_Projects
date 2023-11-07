@@ -1,0 +1,117 @@
+*{
+    padding:0;
+    margin:0
+}
+html,body{
+    height: 100%;
+    overflow-x:hidden;
+}
+body{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMuq3B-3kf9ak5q5_Z8X73ueHvPQPZ-3aOAw&usqp=CAU);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.center{
+    text-align: center;
+}
+header{
+    background-color: black;
+    color: white;
+    padding:25px 0;
+    text-align: center;
+}
+
+footer,.middleText{
+    color: white;
+}
+.middle{
+    margin:50px auto;
+    padding:0px 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; 
+    width: 50%; 
+}
+
+.upButton{
+    width: 75%;
+    background-color: rgb(124, 7, 167);
+    border: none;
+    border-radius: 6px;
+    color:white;
+    padding:10px;
+    margin:10px auto;
+    transition: 0.2s;
+}
+.upButton:hover{
+    background-color: rgb(78, 4, 105);
+    cursor: pointer;
+}
+.right form{
+    margin:0 100px;
+    padding:50px;
+    width:450px;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.middleText{
+    width: 50%;
+    text-align: start;
+   
+}
+form div{
+    width: 90.5%;
+}
+.right form input, form button{
+    width: 100%;
+    margin:10px auto;
+    padding:20px;
+    border-radius: 5px;
+}
+form button{
+    background-color: rgb(37, 218, 37);
+    transition:0.2s
+}
+form button:hover{
+    cursor: pointer;
+    background-color: rgb(3, 160, 3);
+}
+
+
+@media screen and (max-width:1220px) {
+    .middle{
+        flex-direction: column;
+        justify-content: center;
+        padding:0;
+        align-items: center;
+    }
+    .right{
+        margin:auto;
+    }
+    .upButton{
+        width: 50%;
+    }
+    .middle form{
+        margin:auto;
+        padding:20px;
+    }
+    .middleText{
+        text-align: center;
+        margin:0;
+        width: 50%;
+    }
+    .right form{
+        width: 250px;
+    }
+    .right form input{
+        padding: 10px;
+    }
+}
+
