@@ -6,8 +6,6 @@ const secondsInput = document.getElementById('seconds')
 const initializeButton = document.getElementById('initialize')
 const abortButton = document.getElementById('abort')
 
-//constantes = valores
-//variaveis = valores q podem mudar durante a execução do codigo
 
 
 //função que ativa/desativa todos os inputs
