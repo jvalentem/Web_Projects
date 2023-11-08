@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    overflow-x: hidden;
+}
+header{
+    background: rgb(91, 91, 247);
+    padding:30px;
+    width: 100%;
+    color:#fff
+}
+main{
+    display: flex;
+    justify-content: space-evenly;
+}
+main div{
+    display: inline-block;
+}
+main div form > *{
+    display: block;
+}
+
+.side{
+    width: 40%;
+    padding:10px;
+    margin:10px;
+}
+.presentation,#login{
+    padding:50px;
+    border-radius: 10px;
+}
+.presentation{
+
+    background:rgb(60, 60, 207);
+    color:#fff;
+
+}
+#login{
+    padding:20px;
+    /* width: 30%; */
+    margin:10px;
+    background:rgb(87, 87, 175);
+    color:#fff;
+    text-align: center;
+}
+#login form{
+    padding:50px;
+}
+#login form input,#loginButton{
+    padding: 8px;
+    margin:10px 0;
+    border-radius: 6px;
+    border:none;
+    transition:0.2s
+
+}
+#login form input:focus{
+    background-color: #fff;
+}
+#loginButton{
+    background:rgb(8, 202, 8);
+    color:#fff;
+}
+#login form button,a{
+    width: 100%;
+}
+#login form input{
+    background: rgb(206, 207, 205);
+    outline: none;
+}
+#register{
+    padding:7px;
+    border-radius: 6px;
+    border:none;
+    background: rgb(255, 255, 255);
+    /* width: fit-content; */
+    text-decoration: none;
+    color:#000;
+    transition:0.2s;
+}
+#register:hover{
+    background: rgb(152, 150, 150);
+
+}
+#loginButton:hover{
+    background:rgb(5, 143, 5);
+    cursor:pointer;
+}
