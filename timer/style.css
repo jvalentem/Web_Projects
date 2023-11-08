@@ -43,15 +43,16 @@ button{
     transition: all 0.3s;
 }
 #pause{
-    background: rgb(87, 87, 231);
-
+    background: rgb(25, 25, 229);   
+}
+#pause:disabled,#abort:disabled{
+    background: rgb(91, 91, 92);
 }
 #initialize{
     background: rgb(2, 154, 2);
 }
 #abort{
     background: rgb(236, 0, 0);
-    color: #000000;
 }
 #pause:hover,
 #abort:hover,
@@ -64,7 +65,10 @@ button{
 #initialize:hover{
     background: rgb(4, 196, 4);
 }
-#pause:hover{
+#pause:disabled:hover,#abort:disabled:hover{
+    cursor: auto;
+}
+#pause:enabled:hover{
     background: rgb(21, 21, 191);
 }
 p#status{
