@@ -24,12 +24,16 @@ const initialMethods = ()=>{
     const btSection = document.getElementById('buttonSection')
     initializeButton.style.visibility = 'hidden'
     btSection.style.flexDirection = 'column'
+    pause.removeAttribute('disabled')
+    abortButton.removeAttribute('disabled')
     inputSetActiveAll(false)
 }
 const restart = ()=>{
     const btSection = document.getElementById('buttonSection')
     btSection.style.flexDirection = 'row'
     inputSetActiveAll(true)
+    pause.setAttribute('disabled','true')
+    abortButton.setAttribute('disabled','true')
 }
 const unpauseFun = ()=>{
     pause.innerText = 'Pausar'
