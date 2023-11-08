@@ -44,20 +44,23 @@ const pauseFun = ()=>{
 
 const iniciarContagem = ()=>
 {
-    //esse event listener dentro da função faz com que o usuario so possa clicar no botao de pause caso o temporizador ja tenha sido iniciado
-    pause.addEventListener('click',
-    ()=>
-    {
-        return estaPausado? unpauseFun() : pauseFun()
-    })
+    
 
     //o temporizador so se inicia se os valores corretos forem inseridos
     if(minutesInput.value <= 60 && minutesInput.value >= 0 && secondsInput.value <= 60 && secondsInput.value >= 0 && hoursInput.value >= 0){
-        initialMethods() //metodos iniciais antes do temporizador começar (estão logo acima)
+        initialMethods() //metodos iniciais antes do temporizador começar (estão acima)
         console.log('contagem iniciada')
     
         const tick = setInterval(() => 
         {
+            //esse event listener dentro da função faz com que o usuario so possa clicar no botao de pause caso o temporizador ja tenha sido iniciado
+            pause.addEventListener('click',
+            ()=>
+            {
+            console.log('pausado/despausado')
+            return estaPausado? unpauseFun() : pauseFun()
+            })
+                
             if(!estaPausado){ //
                 if(hoursInput.value == 0 && minutesInput.value == 0 && secondsInput.value == 0)
             {
