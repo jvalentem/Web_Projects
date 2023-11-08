@@ -5,8 +5,9 @@ const secondsInput = document.getElementById('seconds')
 //botões de inicializar contagem e parar contagem
 const initializeButton = document.getElementById('initialize')
 const abortButton = document.getElementById('abort')
-
-
+const pause = document.getElementById('pause')
+const tempstatus = document.getElementById('status')
+let estaPausado = false
 
 //função que ativa/desativa todos os inputs
 const inputSetActiveAll = (active)=>
@@ -30,41 +31,63 @@ const restart = ()=>{
     btSection.style.flexDirection = 'row'
     inputSetActiveAll(true)
 }
+const unpauseFun = ()=>{
+    pause.innerText = 'Pausar'
+    estaPausado = false 
+    tempstatus.innerText = ''
+}
+const pauseFun = ()=>{
+    estaPausado = true
+    pause.innerText = 'Retomar'
+    tempstatus.innerText = 'Temporizador pausado'
+}
+
 const iniciarContagem = ()=>
 {
-    
-    if(minutesInput.value <= 60 && minutesInput.value >= 0 && secondsInput.value <= 60 && secondsInput.value >= 0){
-        initialMethods()
-        console.log('contagem iniciada')
-    //desativar inputs
-    const tick = setInterval(() => 
+    //esse event listener dentro da função faz com que o usuario so possa clicar no botao de pause caso o temporizador ja tenha sido iniciado
+    pause.addEventListener('click',
+    ()=>
     {
+        return estaPausado? unpauseFun() : pauseFun()
+    })
 
-         if(hoursInput.value == 0 && minutesInput.value == 0 && secondsInput.value == 0)
-         {
-            //se todos os contadores chegarem a 0 o timer para
-            stop()
-            warn()
-         }
-        else
+    //o temporizador so se inicia se os valores corretos forem inseridos
+    if(minutesInput.value <= 60 && minutesInput.value >= 0 && secondsInput.value <= 60 && secondsInput.value >= 0 && hoursInput.value >= 0){
+        initialMethods() //metodos iniciais antes do temporizador começar (estão logo acima)
+        console.log('contagem iniciada')
+    
+        const tick = setInterval(() => 
         {
-
-            secondsInput.value--        
-
-            if(secondsInput.value < 0 && minutesInput.value > 0)
+            if(!estaPausado){ //
+                if(hoursInput.value == 0 && minutesInput.value == 0 && secondsInput.value == 0)
             {
-                minutesInput.value--
-                secondsInput.value = 59
+                //se todos os contadores chegarem a 0 o timer para
+                stop()
+                warn()
             }
-
-            if(secondsInput.value < 0 && minutesInput.value <= 0 && hoursInput.value > 0)
+            else
             {
-                minutesInput.value = 59
-                secondsInput.value = 59
-                hoursInput.value--
+
+                secondsInput.value--        
+                
+                //se os segundos chegarem a 0 e ainda tiver minutos
+                if(secondsInput.value < 0 && minutesInput.value > 0)
+                {
+                    //diminuir os minutos e redefinir os segundos
+                    minutesInput.value--
+                    secondsInput.value = 59
+                }
+                //se os minutos e segundos chegarem a 0 e as horas restantes forem maiores que 0
+                if(secondsInput.value < 0 && minutesInput.value <= 0 && hoursInput.value > 0)
+                {
+                    //redefina os minutos e segundos e diminua as horas
+                    minutesInput.value = 59
+                    secondsInput.value = 59
+                    hoursInput.value--
+                }
             }
-        }
-    }, 1000);
+            }
+        }, 1000);
             
     
     const stop = ()=>
@@ -72,7 +95,7 @@ const iniciarContagem = ()=>
         initializeButton.style.visibility = 'visible'
         clearInterval(tick)
         //reiniciar tudo
-        restart()        
+        restart()    
     }
     const warn = ()=>
     {
@@ -89,6 +112,7 @@ const iniciarContagem = ()=>
 const abortarContagem = ()=>{
     inputSetAllValuesTo(0)
     inputSetActiveAll(true)
+    unpauseFun()
 }
 initializeButton.addEventListener('click',iniciarContagem)
 
