@@ -45,7 +45,7 @@ button{
 #pause{
     background: rgb(25, 25, 229);   
 }
-#pause:disabled,#abort:disabled{
+#pause:disabled,#abort:disabled,#initialize:disabled{
     background: rgb(91, 91, 92);
 }
 #initialize{

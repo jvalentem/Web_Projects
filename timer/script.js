@@ -21,19 +21,17 @@ const inputSetAllValuesTo = (value)=>{
     [hoursInput,minutesInput,secondsInput].forEach(input => input.value = value)
 }
 const initialMethods = ()=>{
-    const btSection = document.getElementById('buttonSection')
-    initializeButton.style.visibility = 'hidden'
-    btSection.style.flexDirection = 'column'
+    initializeButton.setAttribute('disabled','true')    
     pause.removeAttribute('disabled')
     abortButton.removeAttribute('disabled')
     inputSetActiveAll(false)
 }
 const restart = ()=>{
     const btSection = document.getElementById('buttonSection')
-    btSection.style.flexDirection = 'row'
     inputSetActiveAll(true)
     pause.setAttribute('disabled','true')
     abortButton.setAttribute('disabled','true')
+    initializeButton.removeAttribute('disabled')
 }
 const unpauseFun = ()=>{
     pause.innerText = 'Pausar'
