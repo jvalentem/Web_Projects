@@ -11,11 +11,24 @@ header{
     background: rgb(91, 91, 247);
     padding:30px;
     width: 100%;
-    color:#fff
+    color:#fff;
+}
+footer{
+    background: rgb(15, 15, 159);
+    text-align: center;
+    color:#fff;
+    width: 100%;
+    padding:30px;
+    /* position: absolute;
+    bottom:0; */
 }
 main{
-    display: flex;
-    justify-content: space-evenly;
+    background:url('https://th.bing.com/th/id/OIG.BNKLjOdveNjpblXuAvYg?pid=ImgGn');
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80%;
+    text-align: center;
 }
 main div{
     display: inline-block;
@@ -27,25 +40,25 @@ main div form > *{
 .side{
     width: 40%;
     padding:10px;
-    margin:10px;
 }
-.presentation,#login{
+.presentation{
     padding:50px;
     border-radius: 10px;
 }
 .presentation{
-
     background:rgb(60, 60, 207);
     color:#fff;
-
 }
 #login{
+    border-radius: 10px;
     padding:20px;
-    /* width: 30%; */
-    margin:10px;
+    float: inline-end;
+    margin:auto;
     background:rgb(87, 87, 175);
     color:#fff;
     text-align: center;
+    margin: 5px auto;
+    height: fit-content;
 }
 #login form{
     padding:50px;
@@ -89,4 +102,21 @@ main div form > *{
 #loginButton:hover{
     background:rgb(5, 143, 5);
     cursor:pointer;
+}
+
+
+@media screen and (max-width:760px){
+    .side{
+        width: auto;
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding:15px 0;
+    }
+    main > div{
+        margin:auto;
+    }
+   
 }
