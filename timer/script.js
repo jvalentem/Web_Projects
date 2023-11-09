@@ -27,7 +27,6 @@ const initialMethods = ()=>{
     inputSetActiveAll(false)
 }
 const restart = ()=>{
-    const btSection = document.getElementById('buttonSection')
     inputSetActiveAll(true)
     pause.setAttribute('disabled','true')
     abortButton.setAttribute('disabled','true')
